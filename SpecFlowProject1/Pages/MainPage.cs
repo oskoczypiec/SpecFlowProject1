@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenQA.Selenium;
-using SpecFlowProject1.Drivers;
+﻿using OpenQA.Selenium;
 
 namespace SpecFlowProject1.Pages
 {
@@ -12,7 +6,7 @@ namespace SpecFlowProject1.Pages
     {
         public string Url = "https://www.saucedemo.com/";
 
-        private IWebDriver _driver;
+        private readonly IWebDriver _driver;
 
         public MainPage(IWebDriver driver)
         {
