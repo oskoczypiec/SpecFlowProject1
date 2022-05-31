@@ -18,7 +18,7 @@ namespace SpecFlowProject1.Support
         {
             ChromeOptions options = new ChromeOptions();
             options.AddArguments("start-maximized");
-            //options.AddArguments("--headless");
+            options.AddArguments("--headless");
 
             new DriverManager().SetUpDriver(new ChromeConfig());
             _driverHelper.Driver = new ChromeDriver(options);
@@ -27,7 +27,7 @@ namespace SpecFlowProject1.Support
         [AfterScenario]
         public void AfterScenario()
         {
-            //TODO: implement logic that has to run after executing each scenario
+            _driverHelper.Driver.Quit();
         }
     }
 }

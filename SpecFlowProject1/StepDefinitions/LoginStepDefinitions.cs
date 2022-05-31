@@ -1,4 +1,5 @@
 using System;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using SpecFlowProject1.Drivers;
@@ -12,10 +13,13 @@ namespace SpecFlowProject1.StepDefinitions
     {
         private DriverHelper _driverHelper;
         private MainPage mainPage;
+        private LoginPage loginPage;
+
         public LoginStepDefinitions(DriverHelper driverHelper)
         {
             _driverHelper = driverHelper;
             mainPage = new MainPage(_driverHelper.Driver);
+            loginPage = new LoginPage(_driverHelper.Driver);
         }
 
 
@@ -28,13 +32,13 @@ namespace SpecFlowProject1.StepDefinitions
         [When(@"user provides credentials")]
         public void WhenUserProvidesCredentials()
         {
-            throw new PendingStepException();
+            loginPage.loginAsStandardUser();
         }
 
         [Then(@"is successfuly logged in")]
         public void ThenIsSuccessfulyLoggedIn()
         {
-            throw new PendingStepException();
+            Assert.That(mainPage.HeaderTitle(), Is.EqualTo("PRODUCTS"));
         }
     }
 }

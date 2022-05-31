@@ -12,16 +12,23 @@ namespace SpecFlowProject1.Pages
     {
         public string Url = "https://www.saucedemo.com/";
 
-        private IWebDriver Driver;
+        private IWebDriver _driver;
 
         public MainPage(IWebDriver driver)
         {
-            Driver = driver;
+            _driver = driver;
         }
+
+        private IWebElement header => _driver.FindElement(By.CssSelector(".title"));
 
         public void NavigateToUrl()
         {
-            Driver.Navigate().GoToUrl(Url);
+            _driver.Navigate().GoToUrl(Url);
+        }
+
+        public string HeaderTitle()
+        {
+            return header.Text;
         }
     }
 }
