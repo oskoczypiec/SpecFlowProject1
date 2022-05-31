@@ -32,7 +32,7 @@ namespace SpecFlowProject1.StepDefinitions
         [When(@"user provides credentials")]
         public void WhenUserProvidesCredentials()
         {
-            loginPage.loginAsStandardUser();
+            loginPage.LoginAsStandardUser();
         }
 
         [Then(@"is successfuly logged in")]
